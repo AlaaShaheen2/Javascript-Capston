@@ -1,6 +1,40 @@
-header {
-  background-color: rgb(237, 234, 234);
-  padding: 5px;
-  width: 100%;
-  margin: 0;
+* {
+  box-sizing: border-box;
 }
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(219, 225, 231, 0.791);
+  
+}
+.title {
+  font-size: 1rem;
+  margin-left: 5.5rem;
+}
+ .links{
+  margin: 0;
+  padding: 0;
+  display: flex;
+ }
+ .links ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: center;
+ }
+
+ .links li{
+  list-style: none;
+ }
+ .links li a{
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  display: block;
+ }
