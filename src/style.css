@@ -13,9 +13,11 @@ body{
   background-color: rgba(219, 225, 231, 0.791);
   
 }
-.title {
-  font-size: 1rem;
-  margin-left: 5.5rem;
+.logo {
+  max-width: 9%;
+  height: auto;
+  padding: 5px;
+  margin-left: 20rem;
 }
  .links{
   margin: 0;
@@ -27,6 +29,8 @@ body{
   padding: 0;
   display: flex;
   text-align: center;
+  margin-right: 20rem;
+  font-size: 1.5rem;
  }
 
  .links li{
