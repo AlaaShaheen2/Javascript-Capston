@@ -29,8 +29,10 @@ const showPoke = (pokemon) => {
             <img class="img-card" src="${pok.image}"/>
             <h2 class="title-cr">${pok.id}. ${pok.name}</h2>
             <p class="type">Type: ${pok.type}</p>
+            <div class = "click">
             <button type="button" class="btn">Comment</button>
-            
+            <img src="./images/icons8-heart-40(1).png" alt="" class="heart-img">
+            </div>
         </li>
     `
         )

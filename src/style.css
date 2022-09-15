@@ -122,3 +122,14 @@ h1 {
     padding: 7px;
 }
 
+.heart-img{
+  width:15%;
+    height: auto;
+    padding: 5px;
+    
+}
+
+.click{
+  display: flex;
+  justify-content: center;
+}
