@@ -1,29 +1,18 @@
 import './style.css';
 
-const pokeElem = document.getElementById('poke-Elem');
+const pokeElem = document.getElementById('poke-elem');
 const pokeNum = 27;
 const fetchPoke = () => {
-    const pokemons = [];
-    for (let i = 1; i <= pokeNum; i++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        pokemons.push(fetch(url).then((res) => res.json()));
-    }
-    Promise.all(pokemons).then((results) => {
-        const pokemon = results.map((res) => ({
-            name: res.name,
-            image: res.sprites['front_default'],
-            type: res.types.map((type) => type.type.name).join(', '),
-            id: res.id
-        }));
-        showPoke(pokemon);
-    });
-};
+  const pokemons = [];
+  for (let i = 1; i <= pokeNum; i += 1) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    pokemons.push(fetch(url).then((res) => res.json()));
+  }
 
-const showPoke = (pokemon) => {
-    console.log(pokemon);
+  const showPoke = (pokemon) => {
     const pokeInnerHtml = pokemon
-        .map(
-            (pok) => `
+      .map(
+        (pok) => `
         <li class="poke-cards">
         
             <img class="img-card" src="${pok.image}"/>
@@ -34,10 +23,20 @@ const showPoke = (pokemon) => {
             <img src="./images/icons8-heart-40(1).png" alt="" class="heart-img">
             </div>
         </li>
-    `
-        )
-        .join('');
-        pokeElem.innerHTML = pokeInnerHtml;
+    `,
+      )
+      .join('');
+    pokeElem.innerHTML = pokeInnerHtml;
+  };
+  Promise.all(pokemons).then((results) => {
+    const pokemon = results.map((res) => ({
+      name: res.name,
+      image: res.sprites.front_default,
+      type: res.types.map((type) => type.type.name).join(', '),
+      id: res.id,
+    }));
+    showPoke(pokemon);
+  });
 };
 
 fetchPoke();
