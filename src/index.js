@@ -1,10 +1,10 @@
 import './style.css';
 
 const pokeElem = document.getElementById('poke-elem');
-const pokeNum = 27;
+const pokeNum = 36;
 const fetchPoke = () => {
   const pokemons = [];
-  for (let i = 1; i <= pokeNum; i += 1) {
+  for (let i = 1; i <= pokeNum; i += 3) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     pokemons.push(fetch(url).then((res) => res.json()));
   }
