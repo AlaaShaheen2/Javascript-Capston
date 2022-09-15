@@ -16,7 +16,7 @@ const fetchPoke = () => {
         <li class="poke-cards">
         
             <img class="img-card" src="${pok.image}"/>
-            <h2 class="title-cr">${pok.id}. ${pok.name}</h2>
+            <h2 class="title-cr"> ${pok.name}</h2>
             <p class="type">Type: ${pok.type}</p>
             <div class = "click">
             <button type="button" class="btn">Comment</button>
