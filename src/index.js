@@ -1,9 +1,14 @@
 import './style.css';
 import close from './images/close.png';
+import itemCounter from './JS/itemCounter';
 
 const container = document.querySelector('.container');
 const pokeElem = document.getElementById('poke-elem');
+const pokeCounter = document.querySelector('.poke-counter');
+console.log(pokeCounter);
+
 const pokeNum = 36;
+
 const fetchPoke = () => {
   const pokemons = [];
   for (let i = 1; i <= pokeNum; i += 3) {
@@ -104,6 +109,7 @@ const fetchPoke = () => {
   };
 
   const showPoke = (pokemon) => {
+    console.log(pokemon);
     const pokeInnerHtml = pokemon
       .map(
         (pok) => `
@@ -113,8 +119,8 @@ const fetchPoke = () => {
             <h2 class="title-cr"> ${pok.name}</h2>
             <p class="type">Type: ${pok.type}</p>
             <div class = "click">
-              <button type="button" class="btn">Comment</button>
-              <img src="./images/icons8-heart-40(1).png" alt="" class="heart-img">
+            <button type="button" class="btn">Comment</button>
+            <button class="like-api-call-btn" type="button" id=${pok.id}><img src="./images/icons8-heart-40(1).png" alt="" class="heart-img"></button>
             </div>
         </li>
     `,
@@ -122,6 +128,7 @@ const fetchPoke = () => {
       .join('');
     pokeElem.innerHTML = pokeInnerHtml;
   };
+
   Promise.all(pokemons).then((results) => {
     const pokemon = results.map((res) => ({
       name: res.name,
@@ -134,4 +141,7 @@ const fetchPoke = () => {
   });
 };
 
-fetchPoke();
+window.onload = () => {
+  fetchPoke();
+  itemCounter(pokeNum, pokeCounter);
+};
