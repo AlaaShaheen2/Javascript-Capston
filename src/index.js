@@ -1,5 +1,7 @@
 import './style.css';
+import close from './images/close.png';
 
+const container = document.querySelector('.container');
 const pokeElem = document.getElementById('poke-elem');
 const pokeNum = 36;
 const fetchPoke = () => {
@@ -40,3 +42,35 @@ const fetchPoke = () => {
 };
 
 fetchPoke();
+
+function displayComments() {
+  const list = document.querySelector('.poke-elem');
+  list.addEventListener('click', (e) => {
+    if (e.target.innerHTML === "Comment") {
+      const commentWrapper = document.createElement('div');
+      commentWrapper.classList.add('comment-wrapper');
+      container.appendChild(commentWrapper);
+
+      const commentSection = document.createElement('div');
+      commentSection.classList.add('comment-section');
+      commentWrapper.appendChild(commentSection);
+
+      const closeDiv = document.createElement('div');
+      closeDiv.classList.add('close-div');
+      commentSection.appendChild(closeDiv);
+
+      const closeIcon = new Image;
+      closeIcon.src = close;
+      closeIcon.classList.add('close');
+      closeDiv.appendChild(closeIcon);
+
+      closeDiv.addEventListener('click', (z) => {
+        if (z.target.src === close) {
+          commentWrapper.remove();
+        }
+      });
+    };
+  });
+}
+
+displayComments();
