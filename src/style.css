@@ -141,9 +141,6 @@ h1 {
   justify-content: center;
   left: 0;
   backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .comment-section {
