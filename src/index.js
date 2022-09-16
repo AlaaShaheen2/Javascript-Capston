@@ -2,7 +2,7 @@ import './style.css';
 import itemCounter from './JS/itemCounter';
 
 const pokeElem = document.getElementById('poke-elem');
-const pokeCounter = document.querySelector('.poke-counter')
+const pokeCounter = document.querySelector('.poke-counter');
 console.log(pokeCounter);
 
 const pokeNum = 36;
@@ -32,7 +32,6 @@ const fetchPoke = () => {
       )
       .join('');
     pokeElem.innerHTML = pokeInnerHtml;
-   
   };
 
   Promise.all(pokemons).then((results) => {
@@ -48,6 +47,5 @@ const fetchPoke = () => {
 
 window.onload = () => {
   fetchPoke();
-  itemCounter(pokeNum, pokeCounter
-    )
-}
+  itemCounter(pokeNum, pokeCounter);
+};
