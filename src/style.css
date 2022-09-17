@@ -1,0 +1,262 @@
+@import "https://fonts.googleapis.com/css?family=Muli&display=swap";
+@import "https://fonts.googleapis.com/css?family=Lato:300,400&display=swap";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #f7e3c1;
+  background: linear-gradient(to right, #f6a9a9, #ddcaaa);
+  background: linear-gradient(to right, #dd9797, #e2dacc);
+  margin: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.title {
+  padding-left: 60px;
+  margin-left: 13rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ee6983;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 54px;
+}
+
+.logo {
+  max-width: 17%;
+  height: auto;
+  padding: 5px;
+}
+
+.links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  text-align: center;
+  margin-right: 20rem;
+  font-size: 1.5rem;
+}
+
+.links li {
+  list-style: none;
+}
+
+.links li a {
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  display: block;
+}
+
+.poke-elem {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
+  padding-inline-start: 0;
+}
+
+.poke-cards {
+  border-radius: 50px;
+  list-style: none;
+  padding: 30px;
+  background-color: #ee6983;
+  color: #222;
+  text-align: center;
+}
+
+.title-cr {
+  text-transform: capitalize;
+  margin-bottom: 0;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.type {
+  margin-top: 5px;
+  color: rgb(20 20 20);
+  font-weight: lighter;
+}
+
+.img-card {
+  height: 180px;
+  background-color: rgb(255 255 255 / 60%);
+  border-radius: 50%;
+  width: 180px;
+  text-align: center;
+}
+
+.btn {
+  background-color: rgb(255 255 255 / 60%);
+  border-radius: 10px;
+  color: black;
+  padding: 7px;
+}
+
+.heart-img {
+  width: 15%;
+  height: auto;
+  padding: 5px;
+}
+
+.click {
+  display: flex;
+  justify-content: center;
+}
+
+.like-api-call-btn {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Comment section */
+
+.comment-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  backdrop-filter: blur(5px);
+}
+
+.comment-section {
+  background-color: #f6a9a9;
+  border-radius: 50px;
+  width: 90%;
+  height: 95%;
+  z-index: 101;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.close-div {
+  width: 95%;
+  display: flex;
+  justify-content: end;
+}
+
+.close {
+  height: 60px;
+  width: 60px;
+  position: fixed;
+}
+
+.comment-pokename {
+  text-transform: capitalize;
+  margin-bottom: 0;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.comment-poketype {
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.comment-pokeid {
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.all-comments-wrapper {
+  font-weight: normal;
+  width: 50vw;
+}
+
+.all-comments li {
+  margin-bottom: 3px;
+  list-style-type: none;
+  text-align: center;
+}
+
+.comments-header {
+  font-weight: normal;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.add-comment-wrapper {
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.add-comment-header {
+  font-weight: normal;
+  align-self: center;
+  font-size: 30px;
+}
+
+.add-comment-name {
+  font-weight: normal;
+  padding: 3px;
+  margin-bottom: 10px;
+  width: 15vw;
+  font-size: 16px;
+}
+
+.add-comment-text {
+  font-weight: normal;
+  padding: 3px;
+  margin-bottom: 10px;
+  width: 25vw;
+  height: 100px;
+  font-size: 16px;
+}
+
+.add-comment-button {
+  font-weight: normal;
+  width: 15vw;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #ee6983;
+}
+
+.footer p {
+  margin-left: 40px;
+  font-size: 24px;
+}
