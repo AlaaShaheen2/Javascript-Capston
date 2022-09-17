@@ -8,7 +8,6 @@ const likeAPI = (item) => {
     },
     body: JSON.stringify(item),
   });
-  // .then(json=>json.json())
 };
 
 const getLikes = async () => {
