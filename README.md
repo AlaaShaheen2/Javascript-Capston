@@ -1,13 +1,13 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Javascript-Capston
-his web application is a type of a showcase of Pokemon with details of the Pokemon and an option to get comments on each movie. which is using API's to get and set data.
+This web application is a type of a showcase of Pokemon with details of the Pokemon and an option to get comments on each movie. which is using API's to get and set data.
 
 ![App Screenshot](./src/images/Screen%20Shot%202022-09-17%20at%2021.21.45.png)
 
 ## Video Presentation
 
-[Click on the link to see the presentation]()
+[Click on the link to see the presentation](https://drive.google.com/file/d/1fyJ0bQI2uK-uom7GUT22gYpcFrPwwnoy/view?usp=sharing)
 
 ## Get Live Demo
 
