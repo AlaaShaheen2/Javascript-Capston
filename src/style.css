@@ -195,6 +195,12 @@ h1 {
   width: 50vw;
 }
 
+.all-comments li {
+  margin-bottom: 3px;
+  list-style-type: none;
+  text-align: center;
+}
+
 .comments-header {
   font-weight: normal;
   font-size: 40px;
