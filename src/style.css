@@ -123,3 +123,9 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+.like-api-call-btn {
+  background: none;
+  border: none;
+  outline: none;
+}
