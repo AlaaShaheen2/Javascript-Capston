@@ -1,15 +1,17 @@
 import './style.css';
+import getLikes from './JS/likeAPI.js';
+import itemCounter from './JS/itemCounter.js';
 import close from './images/close.png';
-import itemCounter from './JS/itemCounter';
 
 const container = document.querySelector('.container');
 const pokeElem = document.getElementById('poke-elem');
 const pokeCounter = document.querySelector('.poke-counter');
-console.log(pokeCounter);
 
 const pokeNum = 36;
 
-const fetchPoke = () => {
+const fetchPoke = async () => {
+  const likes = await getLikes();
+
   const pokemons = [];
   for (let i = 1; i <= pokeNum; i += 3) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -109,21 +111,29 @@ const fetchPoke = () => {
   };
 
   const showPoke = (pokemon) => {
-    console.log(pokemon);
     const pokeInnerHtml = pokemon
       .map(
-        (pok) => `
-        <li class="poke-cards">
-        
-            <img class="img-card" src="${pok.image}"/>
-            <h2 class="title-cr"> ${pok.name}</h2>
-            <p class="type">Type: ${pok.type}</p>
-            <div class = "click">
-            <button type="button" class="btn">Comment</button>
-            <button class="like-api-call-btn" type="button" id=${pok.id}><img src="./images/icons8-heart-40(1).png" alt="" class="heart-img"></button>
-            </div>
-        </li>
-    `,
+        (pok) => {
+          let targetLikes = 0;
+          likes.forEach((l) => {
+            if (l.item_id.toString() === pok.id.toString() && targetLikes === 0) {
+              targetLikes = l.likes;
+            }
+          });
+          return `
+            <li class="poke-cards">
+            
+                <img class="img-card" src="${pok.image}"/>
+                <h2 class="title-cr"> ${pok.name}</h2>
+                <p class="type">Type: ${pok.type}</p>
+                <div class = "click">
+                <button type="button" class="btn">Comment</button>
+                <img src="./images/icons8-heart-40(1).png" alt="" id=${pok.id} class="heart-img like-api-call-btn">
+                <span class="likes-container">${targetLikes || 0}</span>
+                </div>
+            </li>
+        `;
+        },
       )
       .join('');
     pokeElem.innerHTML = pokeInnerHtml;
@@ -141,7 +151,7 @@ const fetchPoke = () => {
   });
 };
 
-window.onload = () => {
+window.onload = async () => {
   fetchPoke();
   itemCounter(pokeNum, pokeCounter);
 };
