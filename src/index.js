@@ -109,12 +109,14 @@ const fetchPoke = async () => {
               });
               async function requestComments() {
                 let commentsInfo = await Comments.getComments(pokemon[i].id);
-                console.log(commentsInfo);
+                let commentCounter = 0
                 for (let i = 0; i + 1 <= commentsInfo.length; i += 1) {
                   const comment = document.createElement('li');
                   comment.innerText = `${commentsInfo[i]?.creation_date} ${commentsInfo[i]?.username}: ${commentsInfo[i]?.comment}`;
                   allComments.appendChild(comment);
+                  commentCounter+=1
                 }
+                commentsHeader.innerText = `Comments (${commentCounter})`
               }
 
               addCommentBtn.addEventListener('click', (y) => {
@@ -124,10 +126,14 @@ const fetchPoke = async () => {
                   Comments.postComments(pokemon[i].id, userName, userComment);
                   addCommentName.value = '';
                   addCommentText.value = '';
-                  commentWrapper.remove();
-                  requestComments();
-                  showComments();
 
+                  async function reload() {
+                    const wait=ms=>new Promise(resolve => setTimeout(resolve, ms));
+                    requestComments();
+                    wait(0.5*1000).then(() => commentWrapper.remove());
+                    showComments();
+                  }
+                  reload();
                 }
               });
 
