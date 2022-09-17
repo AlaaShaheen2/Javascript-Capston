@@ -1,10 +1,9 @@
 import './style.css';
-import './JS/likeAPI';
-import itemCounter from './JS/itemCounter';
-import { getLikes } from './JS/likeAPI';
+import getLikes from './JS/likeAPI.js';
+import itemCounter from './JS/itemCounter.js';
 
 const pokeElem = document.getElementById('poke-elem');
-const pokeCounter = document.querySelector('.poke-counter')
+const pokeCounter = document.querySelector('.poke-counter');
 
 const pokeNum = 36;
 
@@ -17,18 +16,16 @@ const fetchPoke = async () => {
     pokemons.push(fetch(url).then((res) => res.json()));
   }
   const showPoke = (pokemon) => {
-    
-    console.log(pokemon);
     const pokeInnerHtml = pokemon
       .map(
         (pok) => {
-            let targetLikes = 0;
-            likes.forEach(l => {
-                if(l['item_id'].toString() === pok.id.toString() && targetLikes == 0) {
-                  targetLikes = l.likes
-                }
-            })
-            return  `
+          let targetLikes = 0;
+          likes.forEach((l) => {
+            if (l.item_id.toString() === pok.id.toString() && targetLikes === 0) {
+              targetLikes = l.likes;
+            }
+          });
+          return `
             <li class="poke-cards">
             
                 <img class="img-card" src="${pok.image}"/>
@@ -40,13 +37,11 @@ const fetchPoke = async () => {
                 <span class="likes-container">${targetLikes || 0}</span>
                 </div>
             </li>
-        `
-
-        }
+        `;
+        },
       )
       .join('');
     pokeElem.innerHTML = pokeInnerHtml;
-   
   };
 
   Promise.all(pokemons).then((results) => {
@@ -62,7 +57,5 @@ const fetchPoke = async () => {
 
 window.onload = async () => {
   fetchPoke();
-  itemCounter(pokeNum, pokeCounter)
-  const like = await getLikes()
-  console.log(like)
-}
+  itemCounter(pokeNum, pokeCounter);
+};
