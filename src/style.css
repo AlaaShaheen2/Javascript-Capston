@@ -159,6 +159,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .close-div {
@@ -170,6 +171,7 @@ h1 {
 .close {
   height: 60px;
   width: 60px;
+  position: fixed;
 }
 
 .comment-pokename {
