@@ -127,11 +127,11 @@ const fetchPoke = async () => {
                   addCommentText.value = '';
 
                   const reload = async () => {
-                    const waitComments = setTimeout(showComments, 500);
+                    const waitComments = setTimeout(showComments, 650);
+                    const waitRefresh = setTimeout(commentWrapper.remove(), 600);
                     requestComments();
+                    waitRefresh();
                     waitComments();
-                    commentWrapper.remove();
-                    showComments();
                   };
                   reload();
                 }
