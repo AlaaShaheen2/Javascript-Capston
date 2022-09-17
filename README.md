@@ -7,7 +7,7 @@ This web application is a type of a showcase of Pokemon with details of the Poke
 
 ## Video Presentation
 
-[Click on the link to see the presentation](https://drive.google.com/file/d/1fyJ0bQI2uK-uom7GUT22gYpcFrPwwnoy/view?usp=sharing)
+[Click on the link to see the presentation](https://drive.google.com/file/d/1n2pfthSoUxXiWUPXZgGWBy93z_J1q5z2/view?usp=sharing)
 
 ## Get Live Demo
 
