@@ -2,7 +2,7 @@ import './style.css';
 import getLikes from './JS/likeAPI.js';
 import itemCounter from './JS/itemCounter.js';
 import close from './images/close.png';
-import Comments from './JS/commentApi';
+import Comments from './JS/commentApi.js';
 
 const container = document.querySelector('.container');
 const pokeElem = document.getElementById('poke-elem');
@@ -26,7 +26,6 @@ const fetchPoke = async () => {
         for (let i = 0; i <= pokemon.length; i += 1) {
           const pokeSource = e.target.parentElement.parentElement.firstChild.nextSibling.src;
           if (pokeSource === pokemon[i]?.image) {
-
             const showComments = () => {
               const commentWrapper = document.createElement('div');
               commentWrapper.classList.add('comment-wrapper');
@@ -108,18 +107,18 @@ const fetchPoke = async () => {
                 }
               });
               async function requestComments() {
-                let commentsInfo = await Comments.getComments(pokemon[i].id);
-                let commentCounter = 0
+                const commentsInfo = await Comments.getComments(pokemon[i].id);
+                let commentCounter = 0;
                 for (let i = 0; i + 1 <= commentsInfo.length; i += 1) {
                   const comment = document.createElement('li');
                   comment.innerText = `${commentsInfo[i]?.creation_date} ${commentsInfo[i]?.username}: ${commentsInfo[i]?.comment}`;
                   allComments.appendChild(comment);
-                  commentCounter+=1
+                  commentCounter += 1;
                 }
-                commentsHeader.innerText = `Comments (${commentCounter})`
+                commentsHeader.innerText = `Comments (${commentCounter})`;
               }
 
-              addCommentBtn.addEventListener('click', (y) => {
+              addCommentBtn.addEventListener('click', () => {
                 if (addCommentName.value !== '' && addCommentText.value !== '') {
                   const userName = addCommentName.value;
                   const userComment = addCommentText.value;
@@ -127,19 +126,19 @@ const fetchPoke = async () => {
                   addCommentName.value = '';
                   addCommentText.value = '';
 
-                  async function reload() {
-                    const wait=ms=>new Promise(resolve => setTimeout(resolve, ms));
+                  const reload = async () => {
+                    const waitComments = setTimeout(showComments, 500);
                     requestComments();
-                    wait(0.5*1000).then(() => commentWrapper.remove());
+                    waitComments();
+                    commentWrapper.remove();
                     showComments();
-                  }
+                  };
                   reload();
                 }
               });
 
-
               requestComments();
-            }
+            };
 
             showComments();
           }
